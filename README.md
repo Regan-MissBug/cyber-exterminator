@@ -1,5 +1,9 @@
 # 赛博虫师 Cyber Exterminator
 
+[中文说明](#中文说明) · [English](#english)
+
+## 中文说明
+
 《赛博虫师》是一款 Unity 横屏游戏原型：识别不同机械害虫，并使用点击、斩击、画圆、双击、V 形和捏合等对应手势进行净化，保护中央净化核心。
 
 当前公开试玩版本：**v0.5.2**
@@ -59,3 +63,67 @@
 ## 许可说明
 
 本仓库未提供开源许可，试玩包仅用于游戏体验与展示。
+
+---
+
+## English
+
+Cyber Exterminator is a landscape Unity game prototype. Identify different mechanical pests and purify them with the matching gesture—tap, slash, circle, double-tap, V-shape, or pinch—to defend the central Purification Core.
+
+Current public playtest version: **v0.5.2**
+
+### Download the Playtest
+
+Visit [Releases](https://github.com/Regan-ZhengLu/cyber-exterminator/releases/latest) and download:
+
+- `CyberExterminator-Mac-v0.5.2.zip`
+- `CyberExterminator-Windows-x64-v0.5.2.zip`
+- `CyberExterminator-v0.5.2-Playtest-Guide.md`: playtest and acceptance notes
+- `SHA256SUMS_v0.5.2.txt`: file integrity checksums
+
+This repository distributes playable builds only. The Unity source code is not included.
+
+### Game Modes
+
+- **Level Mode:** Six levels that introduce new mechanical pests one by one.
+- **Endless Mode:** New pest types and increasing pressure are added as survival time increases.
+- **Settings:** Sound effects, volume, fullscreen, and windowed mode are saved automatically.
+
+### Mechanical Pests and Gestures
+
+| Pest | Purification gesture |
+| --- | --- |
+| Mechanical Mosquito | Tap |
+| Armored Cockroach | Straight-line slash |
+| Venom Spider | Draw a closed circle |
+| Mechanical Fly | Rapid double-tap |
+| Mechanical Locust | V-shaped slash |
+| Mechanical Termite | Two-finger pinch; right-click or Shift + left-click on desktop |
+
+### Desktop Controls
+
+- Main menu: number keys `1`–`4`, or mouse input.
+- Settings: `M` toggles sound, `←/→` adjusts volume, and `F` switches between fullscreen and windowed mode.
+- Battle: press `Space` to release the Global Pulse when fully charged.
+- Back: `Esc`.
+
+### Launch Instructions
+
+#### macOS
+
+Extract the ZIP and launch `CyberExterminator.app`. The current build is not Apple-notarized. If macOS blocks the first launch, Control-click the app, choose **Open**, and confirm.
+
+#### Windows
+
+Extract the complete ZIP and launch `CyberExterminator.exe`. Do not move the EXE away from its companion folders. The current build is not Authenticode-signed, so Windows may show an unknown-publisher warning.
+
+### System and Build Information
+
+- Unity 6000.5.4f1
+- Landscape 16:9
+- macOS: Universal build for Apple Silicon and Intel
+- Windows: 64-bit
+
+### License Notice
+
+No open-source license is provided. The playtest builds are intended for gameplay evaluation and showcase purposes only.
