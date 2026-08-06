@@ -8,8 +8,9 @@
 
 请前往 [Releases](https://github.com/Regan-ZhengLu/cyber-exterminator/releases/latest) 下载：
 
-- `赛博虫师_Unity_Mac试玩版_v0.5.2.zip`
-- `赛博虫师_Unity_Windows试玩版_v0.5.2.zip`
+- `CyberExterminator-Mac-v0.5.2.zip`
+- `CyberExterminator-Windows-x64-v0.5.2.zip`
+- `CyberExterminator-v0.5.2-Playtest-Guide.md`：试玩与验收说明
 - `SHA256SUMS_v0.5.2.txt`：文件完整性校验
 
 本仓库仅发布试玩包，不提供 Unity 源码。
