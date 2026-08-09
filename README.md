@@ -6,16 +6,15 @@
 
 《赛博虫师》是一款 Unity 横屏游戏原型：识别不同机械害虫，并使用点击、斩击、画圆、双击、V 形和捏合等对应手势进行净化，保护中央净化核心。
 
-当前公开试玩版本：**v0.5.2**
+当前公开试玩版本：**v0.6.0**
 
 ## 下载试玩版
 
-请前往 [Releases](https://github.com/Regan-ZhengLu/cyber-exterminator/releases/latest) 下载：
+请前往 [Releases](https://github.com/Regan-MissBug/cyber-exterminator/releases/latest) 下载：
 
-- `CyberExterminator-Mac-v0.5.2.zip`
-- `CyberExterminator-Windows-x64-v0.5.2.zip`
-- `CyberExterminator-v0.5.2-Playtest-Guide.md`：试玩与验收说明
-- `SHA256SUMS_v0.5.2.txt`：文件完整性校验
+- `CyberExterminator-Mac-v0.6.0.zip`
+- `CyberExterminator-Windows-x64-v0.6.0.zip`
+- `CyberExterminator-v0.6.0-Playtest-Guide.md`：试玩与验收说明
 
 本仓库仅发布试玩包，不提供 Unity 源码。
 
@@ -23,7 +22,14 @@
 
 - **关卡模式**：共六关，逐关加入新的机械害虫。
 - **无尽模式**：虫种和压力随存活时间逐步增加。
-- **游戏设置**：支持音效、音量、全屏和窗口模式，并自动保存。
+- **游戏设置**：支持音效、音量、全屏/窗口和四档难度，并自动保存。
+
+## v0.6.0 新内容
+
+- **四档难度**：简单、一般、中等、大师；难度只调整虫子的爬行速度和出现频率。
+- **强化打击感**：正确净化增加白闪、冲击环、轻微镜头震动和冲击音层。
+- **连击反馈**：评级文字和连击数字会短促回弹，每 5 连击触发额外光效与升调提示。
+- **脉冲反馈**：脉冲蓄满和全域清场加入更明确的视听提示。
 
 ## 六类机械害虫
 
@@ -39,7 +45,7 @@
 ## 桌面操作
 
 - 主菜单：数字键 `1`–`4`，或鼠标点击。
-- 设置：`M` 切换音效，`←/→` 调节音量，`F` 切换全屏/窗口。
+- 设置：`M` 切换音效，`←/→` 调节音量，`F` 切换全屏/窗口，`D` 循环难度。
 - 战斗：脉冲充满后按 `Space` 释放全域脉冲。
 - 返回：`Esc`。
 
@@ -70,16 +76,15 @@
 
 Cyber Exterminator is a landscape Unity game prototype. Identify different mechanical pests and purify them with the matching gesture—tap, slash, circle, double-tap, V-shape, or pinch—to defend the central Purification Core.
 
-Current public playtest version: **v0.5.2**
+Current public playtest version: **v0.6.0**
 
 ### Download the Playtest
 
-Visit [Releases](https://github.com/Regan-ZhengLu/cyber-exterminator/releases/latest) and download:
+Visit [Releases](https://github.com/Regan-MissBug/cyber-exterminator/releases/latest) and download:
 
-- `CyberExterminator-Mac-v0.5.2.zip`
-- `CyberExterminator-Windows-x64-v0.5.2.zip`
-- `CyberExterminator-v0.5.2-Playtest-Guide.md`: playtest and acceptance notes
-- `SHA256SUMS_v0.5.2.txt`: file integrity checksums
+- `CyberExterminator-Mac-v0.6.0.zip`
+- `CyberExterminator-Windows-x64-v0.6.0.zip`
+- `CyberExterminator-v0.6.0-Playtest-Guide.md`: playtest and acceptance notes
 
 This repository distributes playable builds only. The Unity source code is not included.
 
@@ -87,7 +92,14 @@ This repository distributes playable builds only. The Unity source code is not i
 
 - **Level Mode:** Six levels that introduce new mechanical pests one by one.
 - **Endless Mode:** New pest types and increasing pressure are added as survival time increases.
-- **Settings:** Sound effects, volume, fullscreen, and windowed mode are saved automatically.
+- **Settings:** Sound effects, volume, fullscreen/windowed mode, and four difficulty levels are saved automatically.
+
+### What's New in v0.6.0
+
+- **Four difficulty levels:** Easy, Normal, Medium, and Master. Difficulty changes only pest movement speed and spawn frequency.
+- **Stronger impact feedback:** Successful purification adds a white flash, impact ring, subtle camera shake, and a layered impact sound.
+- **Combo feedback:** Rating and combo text briefly punch in; every fifth combo adds an extra visual and rising audio cue.
+- **Pulse feedback:** Reaching full charge and clearing multiple targets now have clearer audiovisual cues.
 
 ### Mechanical Pests and Gestures
 
@@ -103,7 +115,7 @@ This repository distributes playable builds only. The Unity source code is not i
 ### Desktop Controls
 
 - Main menu: number keys `1`–`4`, or mouse input.
-- Settings: `M` toggles sound, `←/→` adjusts volume, and `F` switches between fullscreen and windowed mode.
+- Settings: `M` toggles sound, `←/→` adjusts volume, `F` switches between fullscreen and windowed mode, and `D` cycles difficulty.
 - Battle: press `Space` to release the Global Pulse when fully charged.
 - Back: `Esc`.
 
