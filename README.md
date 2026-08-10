@@ -8,6 +8,12 @@
 
 当前公开试玩版本：**v0.6.0**
 
+## 在线试玩
+
+手机或电脑直接打开：[进入《赛博虫师》在线试玩](https://regan-missbug.github.io/cyber-exterminator/)
+
+手机请横屏游玩。首次进入需要加载约 14 MB 游戏数据；微信中可直接点击链接打开，无需下载安装包。
+
 ## 下载试玩版
 
 请前往 [Releases](https://github.com/Regan-MissBug/cyber-exterminator/releases/latest) 下载：
@@ -77,6 +83,12 @@
 Cyber Exterminator is a landscape Unity game prototype. Identify different mechanical pests and purify them with the matching gesture—tap, slash, circle, double-tap, V-shape, or pinch—to defend the central Purification Core.
 
 Current public playtest version: **v0.6.0**
+
+### Play Online
+
+Open the browser version on mobile or desktop: [Play Cyber Exterminator online](https://regan-missbug.github.io/cyber-exterminator/)
+
+Use landscape orientation on mobile. The first launch downloads about 14 MB of game data; no installation is required.
 
 ### Download the Playtest
 
