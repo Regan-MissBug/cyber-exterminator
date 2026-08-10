@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#020817">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>赛博虫师｜在线试玩</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+        background: #020817;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        overscroll-behavior: none;
+        background: radial-gradient(circle at 50% 45%, #07213a 0%, #020817 56%, #01030b 100%);
+        touch-action: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      #shell {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: max(8px, env(safe-area-inset-top)) max(8px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(8px, env(safe-area-inset-left));
+      }
+
+      #unity-container {
+        position: relative;
+        width: min(100vw, calc(100dvh * 16 / 9));
+        height: min(100dvh, calc(100vw * 9 / 16));
+        max-width: 100%;
+        max-height: 100%;
+        background: #01040d;
+        overflow: hidden;
+        box-shadow: 0 0 45px rgba(20, 215, 255, 0.22);
+      }
+
+      #unity-canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #1F1F20;
+        touch-action: none;
+        outline: none;
+      }
+
+      #loading {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-content: center;
+        gap: 18px;
+        padding: 48px;
+        text-align: center;
+        color: #e8fbff;
+        background: linear-gradient(180deg, rgba(1, 6, 18, 0.82), rgba(1, 6, 18, 0.94));
+        z-index: 5;
+      }
+
+      #loading h1 {
+        margin: 0;
+        color: #f6fdff;
+        font-size: clamp(26px, 5vw, 48px);
+        letter-spacing: 0.08em;
+      }
+
+      #loading p {
+        margin: 0;
+        color: #a9dce7;
+        font-size: clamp(13px, 2.3vw, 18px);
+      }
+
+      #progress-track {
+        width: min(70vw, 520px);
+        height: 10px;
+        overflow: hidden;
+        border: 1px solid #1cdfff;
+        background: #061525;
+      }
+
+      #progress-bar {
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, #1188bd, #39eeff);
+        box-shadow: 0 0 16px rgba(52, 236, 255, 0.75);
+        transition: width 120ms linear;
+      }
+
+      #rotate-tip {
+        position: fixed;
+        inset: 0;
+        display: none;
+        place-content: center;
+        gap: 18px;
+        padding: 42px;
+        text-align: center;
+        background: #020817;
+        color: #ecfdff;
+        z-index: 20;
+      }
+
+      #rotate-tip .phone {
+        width: 56px;
+        height: 92px;
+        margin: auto;
+        border: 3px solid #2fe7ff;
+        border-radius: 12px;
+        transform: rotate(90deg);
+        box-shadow: 0 0 20px rgba(47, 231, 255, 0.45);
+      }
+
+      #fullscreen {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        min-width: 88px;
+        height: 40px;
+        border: 1px solid rgba(49, 230, 255, 0.72);
+        border-radius: 7px;
+        color: #dffbff;
+        background: rgba(2, 14, 29, 0.78);
+        font: inherit;
+        z-index: 6;
+      }
+
+      #error {
+        display: none;
+        position: absolute;
+        inset: 0;
+        place-content: center;
+        padding: 48px;
+        text-align: center;
+        color: #ffe6df;
+        background: rgba(18, 2, 3, 0.96);
+        z-index: 15;
+      }
+
+      @media (orientation: portrait) and (max-width: 900px) {
+        #rotate-tip { display: grid; }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="shell">
+      <section id="unity-container" aria-label="赛博虫师在线试玩">
+        <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+        <div id="loading">
+          <h1>赛博虫师</h1>
+          <p id="loading-label">正在连接城市神经网络…</p>
+          <div id="progress-track"><div id="progress-bar"></div></div>
+          <p>首次加载需要一点时间，请保持页面打开</p>
+        </div>
+        <button id="fullscreen" type="button">全屏</button>
+        <div id="error">
+          <h2>网页试玩加载失败</h2>
+          <p id="error-message">请刷新页面后重试，或换用系统浏览器打开。</p>
+        </div>
+      </section>
+    </main>
+
+    <aside id="rotate-tip" aria-live="polite">
+      <div class="phone"></div>
+      <h2>请横屏游玩</h2>
+      <p>旋转手机后即可进入净化协议</p>
+    </aside>
+
+    <script src="Build/WebGL.loader.js"></script>
+    <script>
+      const canvas = document.querySelector("#unity-canvas");
+      const loading = document.querySelector("#loading");
+      const label = document.querySelector("#loading-label");
+      const progress = document.querySelector("#progress-bar");
+      const errorPanel = document.querySelector("#error");
+      const errorMessage = document.querySelector("#error-message");
+      const fullscreenButton = document.querySelector("#fullscreen");
+      let game = null;
+
+      for (const eventName of ["touchstart", "touchmove", "touchend", "gesturestart"]) {
+        document.addEventListener(eventName, (event) => event.preventDefault(), { passive: false });
+      }
+
+      const config = {
+        arguments: [],
+        dataUrl: "Build/WebGL.data.unityweb",
+        frameworkUrl: "Build/WebGL.framework.js.unityweb",
+        codeUrl: "Build/WebGL.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Inorganic Creature Studio",
+        productName: "Cyber Exterminator",
+        productVersion: "0.6.0",
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 1.5),
+        matchWebGLToCanvasSize: true
+      };
+
+      createUnityInstance(canvas, config, (value) => {
+        const percent = Math.round(value * 100);
+        progress.style.width = `${percent}%`;
+        label.textContent = `正在加载作战数据 ${percent}%`;
+      }).then((instance) => {
+        game = instance;
+        loading.style.display = "none";
+        canvas.focus();
+      }).catch((message) => {
+        loading.style.display = "none";
+        errorPanel.style.display = "grid";
+        errorMessage.textContent = String(message) + " 请刷新页面后重试，或换用系统浏览器打开。";
+      });
+
+      fullscreenButton.addEventListener("click", () => {
+        if (game) game.SetFullscreen(1);
+      });
+    </script>
+  </body>
+</html>
